@@ -28,23 +28,25 @@ namespace TechSupport
             List<Incident> incidentList;
             try
             {
-                //invoiceList = InvoiceDB.GetInvoicesDue();
                 incidentList = this.inController.GetOpenIncidents();
-                
                 if (incidentList.Count > 0)
                 {
                     Incident incident;
                     for (int i = 0; i < incidentList.Count; i++)
                     {
                         incident = incidentList[i];
-                        lvIncidents.Items.Add(incident.IncidentID.ToString("c"));
-                        lvIncidents.Items[i].SubItems.Add(incident.CustomerID.ToString("c"));
-                        lvIncidents.Items[i].SubItems.Add(incident.ProductCode);
-                        lvIncidents.Items[i].SubItems.Add(incident.TechID.ToString());
+                        lvIncidents.Items.Add(incident.ProductCode);
                         lvIncidents.Items[i].SubItems.Add(incident.DateOpened.ToShortDateString());
-                        lvIncidents.Items[i].SubItems.Add(incident.DateClosed.ToShortDateString());
+                        lvIncidents.Items[i].SubItems.Add(incident.CustomerName);
+                        if (incident.TechName != null)
+                        {
+                            lvIncidents.Items[i].SubItems.Add(incident.TechName.ToString());
+                        }
+                        else
+                        {
+                            lvIncidents.Items[i].SubItems.Add("");
+                        }
                         lvIncidents.Items[i].SubItems.Add(incident.Title);
-                        lvIncidents.Items[i].SubItems.Add(incident.Description);
                     }
                 }
                 else

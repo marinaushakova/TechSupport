@@ -8,26 +8,21 @@ namespace TechSupportData.Model
 {
     public class Incident
     {
-        private int incidentID;
-        private int customerID;
         private string productCode;
-        private int? techID;
         private DateTime dateOpened;
-        private DateTime? dateClosed;
+        private string customerName;
+        private string techName;
         private string title;
-        private string description;
 
         public Incident()
         {
         }
 
-        public int IncidentID { get; set; }
-        public int CustomerID { get; set; }
+        //the code used auto implemented properties of C#
+        public string CustomerName { get; set; }
         public string ProductCode { get; set; }
-        public int? TechID { get; set; }
+        public string TechName { get; set; }
         public DateTime DateOpened { get; set; }
-        public DateTime DateClosed { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
     }
 }

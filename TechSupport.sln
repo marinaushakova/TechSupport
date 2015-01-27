@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSupport", "TechSupport\TechSupport.csproj", "{5012BC22-4E42-42C7-BC02-7EB5BF328428}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA021AE3-325E-4E25-A6AA-2D2C18BCC968} = {EA021AE3-325E-4E25-A6AA-2D2C18BCC968}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSupportData", "TechSupportData\TechSupportData.csproj", "{EA021AE3-325E-4E25-A6AA-2D2C18BCC968}"
 EndProject

@@ -7,12 +7,12 @@ using System.Data.SqlClient;
 
 namespace TechSupportData.DAL
 {
-    class OpenIncidentsDBConnection
+    public class TechSupportDBConnection
     {
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                "Data Source=(local);Initial Catalog=OpenIncidents;" +
+                "Data Source=(local);Initial Catalog=TechSupport;" +
                 "Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;

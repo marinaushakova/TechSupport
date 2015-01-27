@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using TechSupportData.Model;
 using TechSupportData.DAL;
 
-
 namespace TechSupport.Controller
 {
     /// <summary>

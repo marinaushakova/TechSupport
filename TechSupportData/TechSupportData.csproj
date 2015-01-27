@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5012BC22-4E42-42C7-BC02-7EB5BF328428}</ProjectGuid>
+    <ProjectGuid>{EA021AE3-325E-4E25-A6AA-2D2C18BCC968}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TechSupport</RootNamespace>
-    <AssemblyName>TechSupport</AssemblyName>
+    <RootNamespace>TechSupportData</RootNamespace>
+    <AssemblyName>TechSupportData</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,26 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\OpenIncidentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\OpenIncidentForm.Designer.cs">
-      <DependentUpon>OpenIncidentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\Program.cs" />
+    <Compile Include="DAL\OpenIncidentsDBConnection.cs" />
+    <Compile Include="Model\Incident.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\OpenIncidentForm.resx">
-      <DependentUpon>OpenIncidentForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

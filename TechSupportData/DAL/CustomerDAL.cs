@@ -34,7 +34,6 @@ namespace TechSupportData.DAL
                     customer.Name = reader["Name"].ToString();
 
                     customerList.Add(customer);
-                    
                 }
             }
             catch (SqlException ex)

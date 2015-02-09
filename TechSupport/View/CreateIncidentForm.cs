@@ -23,22 +23,39 @@ namespace TechSupport.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            incident = new Incident();
-            incident.CustomerID = (int)comboBoxCustomer.SelectedValue;
-            incident.ProductCode = comboBoxProduct.SelectedValue.ToString();
-            incident.Title = txtTitle.Text;
-            incident.Description = txtDescription.Text;
-            incident.TechName = "";
-            incident.DateOpened = DateTime.Now;
+            if (comboBoxCustomer.SelectedIndex == -1 || comboBoxProduct.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must choose Customer and Product.", "Input error");
+            }
+            else
+            {
+                if (txtTitle.Text == "" || txtDescription.Text == "")
+                {
+                    MessageBox.Show("Title and Description are a required field.", "Input error");
+                }
+                else
+                {
+                    incident = new Incident();
+                    incident.CustomerID = (int)comboBoxCustomer.SelectedValue;
+                    incident.ProductCode = comboBoxProduct.SelectedValue.ToString();
+                    incident.Title = txtTitle.Text;
+                    incident.Description = txtDescription.Text;
+                    incident.TechName = "";
+                    incident.DateOpened = DateTime.Now;
 
-            try
-            {
-                IncidentDAL.AddIncident(incident);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+                    try
+                    {
+                        IncidentDAL.AddIncident(incident);
+                        MessageBox.Show(this, "Incident was successfully created");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        this.BeginInvoke(new MethodInvoker(Close));
+                    }
+                }
+            }      
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,10 +83,14 @@ namespace TechSupport.View
                 comboBoxProduct.DataSource = prodlist;
                 comboBoxProduct.DisplayMember = "Name";
                 comboBoxProduct.ValueMember = "ProductCode";
+
+                comboBoxCustomer.SelectedIndex = -1;
+                comboBoxProduct.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
             }
         }
     }

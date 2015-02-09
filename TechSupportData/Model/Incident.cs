@@ -13,6 +13,7 @@ namespace TechSupportData.Model
         private string customerName;
         private string techName;
         private string title;
+        private string description;
 
         public Incident()
         {
@@ -24,5 +25,6 @@ namespace TechSupportData.Model
         public string TechName { get; set; }
         public DateTime DateOpened { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

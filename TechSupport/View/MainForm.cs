@@ -43,5 +43,10 @@ namespace TechSupport
         {
             openIncidentsForm = null;
         }
+
+        private void createIncidentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

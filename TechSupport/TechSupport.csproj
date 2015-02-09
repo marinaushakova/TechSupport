@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IncidentsController.cs" />
+    <Compile Include="View\CreateIncidentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreateIncidentForm.Designer.cs">
+      <DependentUpon>CreateIncidentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Controller\Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\CreateIncidentForm.resx">
+      <DependentUpon>CreateIncidentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

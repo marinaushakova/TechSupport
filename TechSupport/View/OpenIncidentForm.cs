@@ -59,7 +59,7 @@ namespace TechSupport
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
-                this.Close();
+                this.BeginInvoke(new MethodInvoker(Close));
             }
         }
     }

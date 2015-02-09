@@ -18,10 +18,11 @@ namespace TechSupportData.DAL
                 "FROM Products " +
                 "ORDER BY Name";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            SqlDataReader reader = null;
             try
             {
                 connection.Open();
-                SqlDataReader reader = selectCommand.ExecuteReader();
+                reader = selectCommand.ExecuteReader();
                 while (reader.Read())
                 {
                     Product product = new Product();
@@ -29,7 +30,6 @@ namespace TechSupportData.DAL
                     product.Name = reader["Name"].ToString();
                     productList.Add(product);
                 }
-                reader.Close();
             }
             catch (SqlException ex)
             {
@@ -37,8 +37,12 @@ namespace TechSupportData.DAL
             }
             finally
             {
-                connection.Close();
+                if (connection != null)
+                    connection.Close();
+                if (reader != null)
+                    reader.Close();
             }
+
             return productList;
         }
     }

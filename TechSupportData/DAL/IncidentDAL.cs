@@ -61,7 +61,7 @@ namespace TechSupportData.DAL
                     
                     incidentList.Add(incident);
                 }
-                reader.Close();
+                
             }
             catch (SqlException ex)
             {
@@ -75,6 +75,40 @@ namespace TechSupportData.DAL
                     reader.Close();
             }
             return incidentList;
+         }
+
+         public static void AddIncident(Incident incident)
+         {
+             SqlConnection connection = TechSupportDBConnection.GetConnection();
+             string insertStatement =
+                 "INSERT Incidents " +
+                 "(CustomerID, ProductCode, TechID, DateOpened, DateClosed, Title, Description) " +
+                 "VALUES (@CustomerID, @ProductCode, @TechID, @DateOpened, @DateClosed, @Title, @Description)";
+             
+             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+             insertCommand.Parameters.AddWithValue("@CustomerID", incident.CustomerID);
+             insertCommand.Parameters.AddWithValue("@ProductCode", incident.ProductCode);
+             insertCommand.Parameters.AddWithValue("@TechID", DBNull.Value);
+             insertCommand.Parameters.AddWithValue("@DateOpened", incident.DateOpened);
+             insertCommand.Parameters.AddWithValue("@DateClosed", DBNull.Value);
+             insertCommand.Parameters.AddWithValue("@Title", incident.Title);
+             insertCommand.Parameters.AddWithValue("@Description", incident.Description);
+
+             try
+             {
+                 connection.Open();
+                 insertCommand.ExecuteNonQuery();
+
+             }
+             catch (SqlException ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 if (connection != null)
+                     connection.Close();
+             }
          }
     }
 }

@@ -23,8 +23,22 @@ namespace TechSupport.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            incident = new Incident();
+            incident.CustomerID = (int)comboBoxCustomer.SelectedValue;
+            incident.ProductCode = comboBoxProduct.SelectedValue.ToString();
+            incident.Title = txtTitle.Text;
+            incident.Description = txtDescription.Text;
+            incident.TechName = "";
+            incident.DateOpened = DateTime.Now;
 
+            try
+            {
+                IncidentDAL.AddIncident(incident);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

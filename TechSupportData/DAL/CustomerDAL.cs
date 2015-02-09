@@ -20,12 +20,12 @@ namespace TechSupportData.DAL
                 "ORDER BY Name";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
-            //SqlDataReader reader = null;
+            SqlDataReader reader = null;
 
             try
             {
                 connection.Open();
-                SqlDataReader reader = selectCommand.ExecuteReader();
+                reader = selectCommand.ExecuteReader();
                 while (reader.Read())
                 {
                     Customer customer = new Customer();
@@ -36,7 +36,6 @@ namespace TechSupportData.DAL
                     customerList.Add(customer);
                     
                 }
-                reader.Close();
             }
             catch (SqlException ex)
             {
@@ -44,11 +43,10 @@ namespace TechSupportData.DAL
             }
             finally
             {
-                connection.Close();
-                //if (connection != null)
-               //     connection.Close();
-               // if (reader != null)
-                //    reader.Close();
+                if (connection != null)
+                    connection.Close();
+                if (reader != null)
+                    reader.Close();
             }
             
             return customerList;

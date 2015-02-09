@@ -125,6 +125,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // CreateIncidentForm
             // 
@@ -143,6 +144,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateIncidentForm";
             this.Text = "CreateIncidentForm";
+            this.Load += new System.EventHandler(this.CreateIncidentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 
 namespace TechSupportData.DAL
 {
+    /// <summary>
+    /// Provides connectionto the database.
+    /// </summary>
     public class TechSupportDBConnection
     {
         public static SqlConnection GetConnection()

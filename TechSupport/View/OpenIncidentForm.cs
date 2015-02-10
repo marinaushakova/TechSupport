@@ -13,6 +13,9 @@ using TechSupportData.Model;
 
 namespace TechSupport
 {
+    /// <summary>
+    /// Form that displays open incidents
+    /// </summary>
     public partial class OpenIncidentForm : Form
     {
         private IncidentsController inController;
@@ -23,6 +26,12 @@ namespace TechSupport
             inController = new IncidentsController();
         }
 
+        /// <summary>
+        /// Method called when form first opens.
+        /// Fills listView lvIncidents with data from the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenIncidentForm_Load(object sender, EventArgs e)
         {
             lvIncidents.Items.Clear();

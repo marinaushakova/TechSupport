@@ -8,8 +8,12 @@ using TechSupportData.Model;
 
 namespace TechSupportData.DAL
 {
+    /// <summary>
+    /// This the DAL class that deals with customers.
+    /// </summary>
     public static class CustomerDAL
     {
+        /// This method returns a list of all customers in database.
         public static List<Customer> GetCustomers()
         {
             List<Customer> customerList = new List<Customer>();

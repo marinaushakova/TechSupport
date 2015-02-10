@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TechSupportData.Model
 {
+    /// <summary>
+    /// Class that models product table
+    /// </summary>
     public class Product
     {
         private string productCode;
@@ -16,6 +19,9 @@ namespace TechSupportData.Model
 
         }
 
+        /// <summary>
+        /// Getter and Setters methods of instance variables
+        /// </summary>
         public string ProductCode
         {
             get

@@ -8,8 +8,15 @@ using TechSupportData.Model;
 
 namespace TechSupportData.DAL
 {
+    /// <summary>
+    /// This the DAL class that deals with products.
+    /// </summary>
     public static class ProductDAL
     {
+        /// <summary>
+        /// This method returns a list of all products stored in the DB
+        /// </summary>
+        /// <returns>List of all products</returns>
         public static List<Product> GetProductList() {
             List<Product> productList = new List<Product>();
             SqlConnection connection = TechSupportDBConnection.GetConnection();

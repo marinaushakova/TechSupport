@@ -11,6 +11,9 @@ using TechSupport.View;
 
 namespace TechSupport
 {
+    /// <summary>
+    /// Main form of the application
+    /// </summary>
     public partial class MainForm : Form
     {
         public MainForm()
@@ -18,6 +21,12 @@ namespace TechSupport
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles event of clicking on File -> Exit menu item.
+        /// Closes the Main form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -26,6 +35,12 @@ namespace TechSupport
         OpenIncidentForm openIncidentsForm;
         CreateIncidentForm createIncidentForm;
 
+        /// <summary>
+        /// Handles event of clicking on Incidents -> Display Open Incidents menu item.
+        /// Opens OpenIncidentsForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void displayOpenIncidentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openIncidentsForm == null) {
@@ -41,11 +56,23 @@ namespace TechSupport
             
         }
 
+        /// <summary>
+        /// Handles event of closing OpenIncidentsForm.
+        /// Closes open incidents form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void openIncidentsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             openIncidentsForm = null;
         }
 
+        /// <summary>
+        /// Handles event of clicking on Incidents -> Create incident.
+        /// Opens CreateIncidentForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createIncidentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (createIncidentForm == null)
@@ -61,6 +88,12 @@ namespace TechSupport
             }
         }
 
+        /// <summary>
+        /// Handles event of closing CreateIncidentForm.
+        /// Closes create incident form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void createIncidentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             createIncidentForm = null;

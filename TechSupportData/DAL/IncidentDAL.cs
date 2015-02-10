@@ -8,9 +8,15 @@ using TechSupportData.Model;
 
 namespace TechSupportData.DAL
 {
+    /// <summary>
     /// This the DAL class that deals with incidents.
+    /// </summary>
     public class IncidentDAL
     {
+        /// <summary>
+        /// This method returns a list of all open incidents
+        /// </summary>
+        /// <returns>List of open incidents</returns>
          public static List<Incident> GetOpenIncidents()
         {
             List<Incident> incidentList = new List<Incident>();
@@ -77,6 +83,10 @@ namespace TechSupportData.DAL
             return incidentList;
          }
 
+        /// <summary>
+        /// This method adds a new incident to the Incidents table
+        /// </summary>
+        /// <param name="incident">Incident object that is being added to the DB</param>
          public static void AddIncident(Incident incident)
          {
              SqlConnection connection = TechSupportDBConnection.GetConnection();

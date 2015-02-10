@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TechSupportData.Model
 {
+    /// <summary>
+    /// Class that models Incidents table.
+    /// </summary>
     public class Incident
     {
         private string productCode;

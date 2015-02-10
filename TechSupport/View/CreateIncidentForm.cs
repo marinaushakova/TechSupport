@@ -12,6 +12,9 @@ using TechSupportData.DAL;
 
 namespace TechSupport.View
 {
+    /// <summary>
+    /// Form that lets user create a new incident
+    /// </summary>
     public partial class CreateIncidentForm : Form
     {
         private Incident incident;
@@ -21,6 +24,12 @@ namespace TechSupport.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event handler for clicking on Create Incident button.
+        /// Adds new incident to DB.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (comboBoxCustomer.SelectedIndex == -1 || comboBoxProduct.SelectedIndex == -1)
@@ -58,16 +67,31 @@ namespace TechSupport.View
             }      
         }
 
+        /// <summary>
+        /// Event handler for clicking on Close button.
+        /// Closes the form without adding an incident to the DB.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Method called when form is loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateIncidentForm_Load(object sender, EventArgs e)
         {
             this.LoadComboBoxes();
         }
 
+        /// <summary>
+        /// Fills comboBoxCustomer and comboBoxProduct comboboxes
+        /// with data from database.
+        /// </summary>
         private void LoadComboBoxes()
         {
             try

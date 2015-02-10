@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TechSupportData.Model
 {
+    /// <summary>
+    /// Class that models Customers table.
+    /// </summary>
     public class Customer
     {
         private int customerID;
@@ -17,7 +20,7 @@ namespace TechSupportData.Model
         }
 
         /// <summary>
-        /// the code used auto implemented properties of C#
+        /// Getter and Setters methods of instance variables
         /// </summary>
         public int CustomerID
         {

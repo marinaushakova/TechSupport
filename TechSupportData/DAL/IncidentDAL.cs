@@ -120,5 +120,74 @@ namespace TechSupportData.DAL
                      connection.Close();
              }
          }
+
+         public static Incident GetIncident(int incidentID)
+         {
+             Incident incident = new Incident();
+             SqlConnection connection = TechSupportDBConnection.GetConnection();
+             string selectStatement =
+                 "SELECT c.Name AS CustomerName, " + 
+                         "p.Name AS ProductName, " +
+                         "t.Name AS TechName, t.TechID AS TechID, Title, " +
+                         "DateOpened, DateClosed, " +
+                         "Description " +
+                 "FROM Incidents i " +
+                 "LEFT JOIN Technicians t ON i.TechID = t.TechID " +
+                 "JOIN Customers c ON i.CustomerID = c.CustomerID " +
+                 "JOIN Products p ON i.ProductCode = p.ProductCode " +
+                 "WHERE IncidentID = @IncidentID";
+             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+             selectCommand.Parameters.AddWithValue("@IncidentID", incidentID);
+
+             SqlDataReader reader = null;
+
+             try
+             {
+                 connection.Open();
+                 reader = selectCommand.ExecuteReader();
+                 while (reader.Read())
+                 {
+                     incident.CustomerName = reader["CustomerName"].ToString();
+                     incident.ProductName = reader["ProductName"].ToString();
+                     
+                     if (reader["TechID"] != System.DBNull.Value)
+                     {
+                         incident.TechName = reader["TechName"].ToString();
+                         incident.TechID = (int)reader["TechID"];
+                     }
+                     else
+                     {
+                         incident.TechName = null;
+                     }
+                     
+                     incident.Title = reader["Title"].ToString();
+                     incident.DateOpened = (DateTime)reader["DateOpened"];
+
+                     if (reader["DateClosed"] != System.DBNull.Value)
+                     {
+                         incident.DateClosed = (DateTime)reader["DateClosed"];
+                     }
+                     else
+                     {
+                         incident.DateClosed = null;
+                     }
+
+                     incident.Description = reader["Description"].ToString();
+                 }
+
+             }
+             catch (SqlException ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 if (connection != null)
+                     connection.Close();
+                 if (reader != null)
+                     reader.Close();
+             }
+             return incident;
+         }
     }
 }

@@ -9,7 +9,7 @@ using TechSupportData.DAL;
 namespace TechSupport.Controller
 {
     /// <summary>
-    /// The controller class deals with the DAL and delegates the work to DAL
+    /// The controller class deals with the incidentsDAL and delegates the work to DAL
     /// </summary>
     
     public class IncidentsController
@@ -22,6 +22,16 @@ namespace TechSupport.Controller
         public  List<Incident> GetOpenIncidents()
         {
             return IncidentDAL.GetOpenIncidents();
+        }
+
+        public void AddIncident(Incident incident)
+        {
+            IncidentDAL.AddIncident(incident);
+        }
+
+        public Incident GetIncident(int incidentID)
+        {
+            return IncidentDAL.GetIncident(incidentID);
         }
     }
 }

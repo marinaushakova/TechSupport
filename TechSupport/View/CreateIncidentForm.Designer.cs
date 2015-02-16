@@ -36,8 +36,8 @@
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCreateIncident = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -107,33 +107,33 @@
             this.txtDescription.Size = new System.Drawing.Size(281, 117);
             this.txtDescription.TabIndex = 7;
             // 
-            // button1
+            // btnCreateIncident
             // 
-            this.button1.Location = new System.Drawing.Point(137, 241);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Create Incident";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreateIncident.Location = new System.Drawing.Point(137, 241);
+            this.btnCreateIncident.Name = "btnCreateIncident";
+            this.btnCreateIncident.Size = new System.Drawing.Size(119, 23);
+            this.btnCreateIncident.TabIndex = 8;
+            this.btnCreateIncident.Text = "Create Incident";
+            this.btnCreateIncident.UseVisualStyleBackColor = true;
+            this.btnCreateIncident.Click += new System.EventHandler(this.btnCreateIncident_Click);
             // 
-            // button2
+            // btnClose
             // 
-            this.button2.Location = new System.Drawing.Point(343, 241);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnClose.Location = new System.Drawing.Point(343, 241);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "Cancel";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // CreateIncidentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 276);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnCreateIncident);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.comboBoxProduct);
@@ -143,6 +143,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CreateIncidentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateIncidentForm";
             this.Load += new System.EventHandler(this.CreateIncidentForm_Load);
             this.ResumeLayout(false);
@@ -160,7 +161,7 @@
         private System.Windows.Forms.ComboBox comboBoxProduct;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCreateIncident;
+        private System.Windows.Forms.Button btnClose;
     }
 }

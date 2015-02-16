@@ -34,6 +34,7 @@
             this.incidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displayOpenIncidentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateIncidentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainFormMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -67,7 +68,8 @@
             // 
             this.incidentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.displayOpenIncidentsToolStripMenuItem,
-            this.createIncidentToolStripMenuItem});
+            this.createIncidentToolStripMenuItem,
+            this.updateIncidentToolStripMenuItem});
             this.incidentsToolStripMenuItem.Name = "incidentsToolStripMenuItem";
             this.incidentsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.incidentsToolStripMenuItem.Text = "Incidents";
@@ -86,14 +88,22 @@
             this.createIncidentToolStripMenuItem.Text = "Create Incident";
             this.createIncidentToolStripMenuItem.Click += new System.EventHandler(this.createIncidentToolStripMenuItem_Click);
             // 
+            // updateIncidentToolStripMenuItem
+            // 
+            this.updateIncidentToolStripMenuItem.Name = "updateIncidentToolStripMenuItem";
+            this.updateIncidentToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.updateIncidentToolStripMenuItem.Text = "Update Incident";
+            this.updateIncidentToolStripMenuItem.Click += new System.EventHandler(this.updateIncidentToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 382);
+            this.ClientSize = new System.Drawing.Size(763, 509);
             this.Controls.Add(this.mainFormMenu);
             this.IsMdiContainer = true;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TechSupport";
             this.mainFormMenu.ResumeLayout(false);
             this.mainFormMenu.PerformLayout();
@@ -110,6 +120,7 @@
         private System.Windows.Forms.ToolStripMenuItem incidentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayOpenIncidentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createIncidentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateIncidentToolStripMenuItem;
     }
 }
 

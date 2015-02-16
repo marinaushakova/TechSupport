@@ -34,6 +34,7 @@ namespace TechSupport
 
         OpenIncidentForm openIncidentsForm;
         CreateIncidentForm createIncidentForm;
+        UpdateIncidentForm updateIncidentForm;
 
         /// <summary>
         /// Handles event of clicking on Incidents -> Display Open Incidents menu item.
@@ -97,6 +98,39 @@ namespace TechSupport
         void createIncidentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             createIncidentForm = null;
+        }
+
+
+        /// <summary>
+        /// Handles event of clicking on Incidents -> Update incident.
+        /// Opens UpdateIncidentForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void updateIncidentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (updateIncidentForm == null)
+            {
+                updateIncidentForm = new UpdateIncidentForm();
+                updateIncidentForm.MdiParent = this;
+                updateIncidentForm.FormClosed += new FormClosedEventHandler(updateIncidentForm_FormClosed);
+                updateIncidentForm.Show();
+            }
+            else
+            {
+                updateIncidentForm.Activate();
+            }
+        }
+
+        /// <summary>
+        /// Handles event of closing UpdateIncidentForm.
+        /// Closes update incident form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void updateIncidentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            updateIncidentForm = null;
         }
     }
 }

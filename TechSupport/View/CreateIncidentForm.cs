@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupportData.Model;
 using TechSupportData.DAL;
+using TechSupport.Controller;
 
 namespace TechSupport.View
 {
@@ -18,10 +19,16 @@ namespace TechSupport.View
     public partial class CreateIncidentForm : Form
     {
         private Incident incident;
+        private IncidentsController inController;
+        private CustomersController custController;
+        private ProductsController prodController;
 
         public CreateIncidentForm()
         {
             InitializeComponent();
+            inController = new IncidentsController();
+            custController = new CustomersController();
+            prodController = new ProductsController();
         }
 
         /// <summary>
@@ -30,7 +37,7 @@ namespace TechSupport.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCreateIncident_Click(object sender, EventArgs e)
         {
             if (comboBoxCustomer.SelectedIndex == -1 || comboBoxProduct.SelectedIndex == -1)
             {
@@ -54,7 +61,7 @@ namespace TechSupport.View
 
                     try
                     {
-                        IncidentDAL.AddIncident(incident);
+                        this.inController.AddIncident(incident);
                         MessageBox.Show(this, "Incident was successfully created");
                         this.Close();
                     }
@@ -73,7 +80,7 @@ namespace TechSupport.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -97,13 +104,13 @@ namespace TechSupport.View
             try
             {
                 List<Customer> custList;
-                custList = CustomerDAL.GetCustomers();
+                custList = custController.GetCustomers();
                 comboBoxCustomer.DataSource = custList;
                 comboBoxCustomer.DisplayMember = "Name";
                 comboBoxCustomer.ValueMember = "CustomerID";
 
                 List<Product> prodlist;
-                prodlist = ProductDAL.GetProductList();
+                prodlist = prodController.GetProductList();
                 comboBoxProduct.DataSource = prodlist;
                 comboBoxProduct.DisplayMember = "Name";
                 comboBoxProduct.ValueMember = "ProductCode";

@@ -38,5 +38,10 @@ namespace TechSupport.Controller
         {
             IncidentDAL.UpdateIncident(incident);
         }
+
+        public void CloseIncident(Incident incident)
+        {
+            IncidentDAL.CloseIncident(incident);
+        }
     }
 }

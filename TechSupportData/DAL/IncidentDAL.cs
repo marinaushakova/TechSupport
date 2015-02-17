@@ -212,7 +212,38 @@ namespace TechSupportData.DAL
              {
                  connection.Open();
                  updateCommand.ExecuteNonQuery();
+             }
+             catch (SqlException ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 if (connection != null)
+                     connection.Close();
+             }
+         }
 
+         /// <summary>
+         /// This method closes an incident - assigns current date to DateClosed
+         /// </summary>
+         /// <param name="incident">Incident object that is being closed</param>
+         public static void CloseIncident(Incident incident)
+         {
+             SqlConnection connection = TechSupportDBConnection.GetConnection();
+             string updateStatement =
+                 "UPDATE Incidents " +
+                 "SET DateClosed = @DateClosed " +
+                 "WHERE IncidentID = @IncidentID";
+
+             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+             updateCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
+             updateCommand.Parameters.AddWithValue("@DateClosed", incident.DateClosed);
+
+             try
+             {
+                 connection.Open();
+                 updateCommand.ExecuteNonQuery();
              }
              catch (SqlException ex)
              {

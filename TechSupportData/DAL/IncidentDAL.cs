@@ -157,6 +157,7 @@ namespace TechSupportData.DAL
                      }
                      else
                      {
+                         incident.TechID = null;
                          incident.TechName = null;
                      }
                      
@@ -188,6 +189,40 @@ namespace TechSupportData.DAL
                      reader.Close();
              }
              return incident;
+         }
+
+         /// <summary>
+         /// This method updates an incident to the Incidents table
+         /// </summary>
+         /// <param name="incident">Incident object that is being updated to the DB</param>
+         public static void UpdateIncident(Incident incident)
+         {
+             SqlConnection connection = TechSupportDBConnection.GetConnection();
+             string updateStatement =
+                 "UPDATE Incidents " +
+                 "SET TechID = @TechID, Description = @Description " +
+                 "WHERE IncidentID = @IncidentID";
+
+             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+             updateCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
+             updateCommand.Parameters.AddWithValue("@TechID", incident.TechID);
+             updateCommand.Parameters.AddWithValue("@Description", incident.Description);
+
+             try
+             {
+                 connection.Open();
+                 updateCommand.ExecuteNonQuery();
+
+             }
+             catch (SqlException ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 if (connection != null)
+                     connection.Close();
+             }
          }
     }
 }

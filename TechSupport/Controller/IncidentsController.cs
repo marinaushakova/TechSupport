@@ -33,5 +33,10 @@ namespace TechSupport.Controller
         {
             return IncidentDAL.GetIncident(incidentID);
         }
+
+        public void UpdateIncident(Incident incident)
+        {
+            IncidentDAL.UpdateIncident(incident);
+        }
     }
 }

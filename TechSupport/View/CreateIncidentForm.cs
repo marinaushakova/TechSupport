@@ -47,7 +47,7 @@ namespace TechSupport.View
             {
                 if (txtTitle.Text == "" || txtDescription.Text == "")
                 {
-                    MessageBox.Show("Title and Description are a required field.", "Input error");
+                    MessageBox.Show("Title and Description are required fields.", "Input error");
                 }
                 else
                 {

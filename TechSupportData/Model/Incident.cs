@@ -15,10 +15,10 @@ namespace TechSupportData.Model
         private string productCode;
         private string productName;
         private DateTime dateOpened;
-        private DateTime dateClosed;
+        private DateTime? dateClosed;
         private string customerName;
         private string techName;
-        private int techID;
+        private int? techID;
         private string title;
         private string description;
         private int customerID;
@@ -34,7 +34,7 @@ namespace TechSupportData.Model
         public int CustomerID { get; set; }
         public string ProductCode { get; set; }
         public string TechName { get; set; }
-        public int TechID { get; set; }
+        public int? TechID { get; set; }
         public DateTime DateOpened { get; set; }
         public DateTime? DateClosed { get; set; }
         public string Title { get; set; }

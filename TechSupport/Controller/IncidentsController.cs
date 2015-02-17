@@ -11,7 +11,6 @@ namespace TechSupport.Controller
     /// <summary>
     /// The controller class deals with the incidentsDAL and delegates the work to DAL
     /// </summary>
-    
     public class IncidentsController
     {
         public IncidentsController()

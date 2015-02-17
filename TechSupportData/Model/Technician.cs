@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TechSupportData.Model
 {
+    /// <summary>
+    /// Class that models technician table
+    /// </summary>
     public class Technician
     {
         private int techID;

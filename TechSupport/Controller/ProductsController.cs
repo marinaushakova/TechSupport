@@ -8,6 +8,9 @@ using TechSupportData.Model;
 
 namespace TechSupport.Controller
 {
+    /// <summary>
+    /// The controller class deals with the productsDAL and delegates the work to DAL
+    /// </summary>
     public class ProductsController
     {
          public ProductsController()

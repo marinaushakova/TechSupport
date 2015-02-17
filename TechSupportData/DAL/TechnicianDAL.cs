@@ -8,8 +8,15 @@ using TechSupportData.Model;
 
 namespace TechSupportData.DAL
 {
+    /// <summary>
+    /// This the DAL class that deals with technicians.
+    /// </summary>
     public static class TechnicianDAL
     {
+        /// <summary>
+        /// This method returns a list of all technicians stored in the DB
+        /// </summary>
+        /// <returns>List of technicians</returns>
         public static List<Technician> GetTechnicians()
         {
             List<Technician> techList = new List<Technician>();

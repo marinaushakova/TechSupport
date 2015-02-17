@@ -121,6 +121,11 @@ namespace TechSupportData.DAL
              }
          }
 
+        /// <summary>
+         /// This method gets an incident by its IncidentID
+        /// </summary>
+         /// <param name="incidentID">IncidentID of the incident that is being returned</param>
+        /// <returns>An Incident object that has required IncidentID</returns>
          public static Incident GetIncident(int incidentID)
          {
              Incident incident = new Incident();

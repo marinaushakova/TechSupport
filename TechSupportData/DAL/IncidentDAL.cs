@@ -210,7 +210,16 @@ namespace TechSupportData.DAL
 
              SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
              updateCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
-             updateCommand.Parameters.AddWithValue("@TechID", incident.TechID);
+
+             if (incident.TechID != null)
+             {
+                updateCommand.Parameters.AddWithValue("@TechID", incident.TechID);
+             }
+             else
+             {
+                 updateCommand.Parameters.AddWithValue("@TechID", System.DBNull.Value);
+             }
+             
              updateCommand.Parameters.AddWithValue("@Description", incident.Description);
 
              try

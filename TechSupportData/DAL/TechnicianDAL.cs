@@ -58,6 +58,10 @@ namespace TechSupportData.DAL
             return techList;
         }
 
+        /// <summary>
+        /// This method returns all technicians with opened incidents
+        /// </summary>
+        /// <returns>List of technicians that have open incidents</returns>
         public static List<Technician> GetTechniciansWithOpenIncidents()
         {
             List<Technician> techList = new List<Technician>();

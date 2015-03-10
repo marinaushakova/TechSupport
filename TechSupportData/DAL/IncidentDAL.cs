@@ -200,32 +200,41 @@ namespace TechSupportData.DAL
          /// This method updates an incident to the Incidents table
          /// </summary>
          /// <param name="incident">Incident object that is being updated to the DB</param>
-         public static void UpdateIncident(Incident incident)
+         public static bool UpdateIncident(Incident oldIncident, Incident newIncident)
          {
              SqlConnection connection = TechSupportDBConnection.GetConnection();
              string updateStatement =
                  "UPDATE Incidents " +
-                 "SET TechID = @TechID, Description = @Description " +
-                 "WHERE IncidentID = @IncidentID";
+                 "SET TechID = @NewTechID, Description = @NewDescription " +
+                 "WHERE IncidentID = @OldIncidentID AND Description = @OldDescription AND DateClosed IS NULL";
 
              SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-             updateCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
 
-             if (incident.TechID != null)
+             //updateCommand.Parameters.AddWithValue("@NewIncidentID", newIncident.IncidentID);
+             if (newIncident.TechID != null)
              {
-                updateCommand.Parameters.AddWithValue("@TechID", incident.TechID);
+                updateCommand.Parameters.AddWithValue("@NewTechID", newIncident.TechID);
              }
              else
              {
-                 updateCommand.Parameters.AddWithValue("@TechID", System.DBNull.Value);
+                 updateCommand.Parameters.AddWithValue("@NewTechID", System.DBNull.Value);
              }
-             
-             updateCommand.Parameters.AddWithValue("@Description", incident.Description);
+             updateCommand.Parameters.AddWithValue("@NewDescription", newIncident.Description);
+             updateCommand.Parameters.AddWithValue("@OldIncidentID", oldIncident.IncidentID);
+             updateCommand.Parameters.AddWithValue("@OldDescription", oldIncident.Description);
 
              try
              {
                  connection.Open();
-                 updateCommand.ExecuteNonQuery();
+                 int count = updateCommand.ExecuteNonQuery();
+                 if (count > 0)
+                 {
+                     return true;
+                 }
+                 else
+                 {
+                     return false;
+                 }
              }
              catch (SqlException ex)
              {
@@ -242,22 +251,31 @@ namespace TechSupportData.DAL
          /// This method closes an incident - assigns current date to DateClosed
          /// </summary>
          /// <param name="incident">Incident object that is being closed</param>
-         public static void CloseIncident(Incident incident)
+         public static bool CloseIncident(Incident oldIncident, Incident newIncident)
          {
              SqlConnection connection = TechSupportDBConnection.GetConnection();
              string updateStatement =
                  "UPDATE Incidents " +
-                 "SET DateClosed = @DateClosed " +
-                 "WHERE IncidentID = @IncidentID";
+                 "SET DateClosed = @NewDateClosed " +
+                 "WHERE IncidentID = @OldIncidentID AND Description = @OldDescription AND DateClosed IS NULL";
 
              SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-             updateCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
-             updateCommand.Parameters.AddWithValue("@DateClosed", incident.DateClosed);
+             updateCommand.Parameters.AddWithValue("@OldIncidentID", oldIncident.IncidentID);
+             updateCommand.Parameters.AddWithValue("@OldDescription", oldIncident.Description);
+             updateCommand.Parameters.AddWithValue("@NewDateClosed", newIncident.DateClosed);
 
              try
              {
                  connection.Open();
-                 updateCommand.ExecuteNonQuery();
+                 int count = updateCommand.ExecuteNonQuery();
+                 if (count > 0)
+                 {
+                     return true;
+                 }
+                 else
+                 {
+                     return false;
+                 }
              }
              catch (SqlException ex)
              {

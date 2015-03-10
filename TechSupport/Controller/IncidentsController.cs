@@ -33,14 +33,14 @@ namespace TechSupport.Controller
             return IncidentDAL.GetIncident(incidentID);
         }
 
-        public void UpdateIncident(Incident incident)
+        public bool UpdateIncident(Incident oldIncident, Incident newIncident)
         {
-            IncidentDAL.UpdateIncident(incident);
+            return IncidentDAL.UpdateIncident(oldIncident, newIncident);
         }
 
-        public void CloseIncident(Incident incident)
+        public bool CloseIncident(Incident oldIncident, Incident newIncident)
         {
-            IncidentDAL.CloseIncident(incident);
+            return IncidentDAL.CloseIncident(oldIncident, newIncident);
         }
 
         public List<Incident> GetOpenIncidentsByTechnician(int techID)

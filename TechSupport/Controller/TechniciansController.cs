@@ -22,5 +22,10 @@ namespace TechSupport.Controller
         {
             return TechnicianDAL.GetTechnicians();
         }
+
+        public List<Technician> GetTechniciansWithOpenIncidents()
+        {
+            return TechnicianDAL.GetTechniciansWithOpenIncidents();
+        }
     }
 }

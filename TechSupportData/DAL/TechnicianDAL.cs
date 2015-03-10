@@ -57,5 +57,51 @@ namespace TechSupportData.DAL
 
             return techList;
         }
+
+        public static List<Technician> GetTechniciansWithOpenIncidents()
+        {
+            List<Technician> techList = new List<Technician>();
+            SqlConnection connection = TechSupportDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT t.TechID, t.Name, t.Email, t.Phone " +
+                "FROM Technicians t JOIN Incidents i " +
+                  "ON t.TechID = i.TechID " +
+                "WHERE i.DateClosed IS NULL " +
+                "GROUP BY t.TechID, t.Name, t.Email, t.Phone  " +
+                "ORDER BY t.Name";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            SqlDataReader reader = null;
+
+            try
+            {
+                connection.Open();
+                reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    Technician tech = new Technician();
+
+                    tech.TechID = (int)reader["TechID"];
+                    tech.Name = reader["Name"].ToString();
+                    tech.Email = reader["Email"].ToString();
+                    tech.Phone = reader["Phone"].ToString();
+
+                    techList.Add(tech);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+                if (reader != null)
+                    reader.Close();
+            }
+
+            return techList;
+        }
     }
 }

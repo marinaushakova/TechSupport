@@ -60,6 +60,12 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OpenIncidentByTechnicianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OpenIncidentByTechnicianForm.Designer.cs">
+      <DependentUpon>OpenIncidentByTechnicianForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\OpenIncidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\OpenIncidentByTechnicianForm.resx">
+      <DependentUpon>OpenIncidentByTechnicianForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\OpenIncidentForm.resx">
       <DependentUpon>OpenIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +104,7 @@
     <EmbeddedResource Include="View\UpdateIncidentForm.resx">
       <DependentUpon>UpdateIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\TechSupportData.Model.Technician.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

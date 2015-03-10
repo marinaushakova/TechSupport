@@ -13,6 +13,8 @@ namespace TechSupportData.Model
     {
         private int techID;
         private string name;
+        private string email;
+        private string phone;
 
 
         public Technician()
@@ -42,6 +44,30 @@ namespace TechSupportData.Model
             set
             {
                 name = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                email = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+            set
+            {
+                phone = value;
             }
         }
     }

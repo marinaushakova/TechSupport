@@ -42,5 +42,10 @@ namespace TechSupport.Controller
         {
             IncidentDAL.CloseIncident(incident);
         }
+
+        public List<Incident> GetOpenIncidentsByTechnician(int techID)
+        {
+            return IncidentDAL.GetOpenIncidentsByTechnician(techID);
+        }
     }
 }

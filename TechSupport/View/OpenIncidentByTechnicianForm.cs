@@ -18,12 +18,15 @@ namespace TechSupport.View
     public partial class OpenIncidentByTechnicianForm : Form
     {
         private TechniciansController techController;
+        private IncidentsController incidentsController;
         private List<Technician> techList;
+        private List<Incident> incidentList;
 
         public OpenIncidentByTechnicianForm()
         {
             InitializeComponent();
             techController = new TechniciansController();
+            incidentsController = new IncidentsController();
         }
 
         /// <summary>
@@ -54,6 +57,10 @@ namespace TechSupport.View
             Technician technician = techList[cmbTechName.SelectedIndex];
             technicianBindingSource.Clear();
             technicianBindingSource.Add(technician);
+
+            incidentList = incidentsController.GetOpenIncidentsByTechnician(technician.TechID);
+            incidentDataGridView.DataSource = incidentList;
+
         }
     }
 }

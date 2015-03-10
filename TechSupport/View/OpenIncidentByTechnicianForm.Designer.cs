@@ -50,18 +50,26 @@
             this.txbEmail = new System.Windows.Forms.TextBox();
             this.cmbTechName = new System.Windows.Forms.ComboBox();
             this.txbPhone = new System.Windows.Forms.TextBox();
+            this.incidentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.incidentDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             lblEmail = new System.Windows.Forms.Label();
             lblTechName = new System.Windows.Forms.Label();
             lblPhone = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.technicianBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.technicianBindingNavigator)).BeginInit();
             this.technicianBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new System.Drawing.Point(88, 69);
+            lblEmail.Location = new System.Drawing.Point(49, 49);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new System.Drawing.Size(35, 13);
             lblEmail.TabIndex = 1;
@@ -70,7 +78,7 @@
             // lblTechName
             // 
             lblTechName.AutoSize = true;
-            lblTechName.Location = new System.Drawing.Point(60, 42);
+            lblTechName.Location = new System.Drawing.Point(21, 22);
             lblTechName.Name = "lblTechName";
             lblTechName.Size = new System.Drawing.Size(63, 13);
             lblTechName.TabIndex = 3;
@@ -79,7 +87,7 @@
             // lblPhone
             // 
             lblPhone.AutoSize = true;
-            lblPhone.Location = new System.Drawing.Point(82, 95);
+            lblPhone.Location = new System.Drawing.Point(43, 75);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new System.Drawing.Size(41, 13);
             lblPhone.TabIndex = 5;
@@ -115,9 +123,10 @@
             this.technicianBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.technicianBindingNavigator.Name = "technicianBindingNavigator";
             this.technicianBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.technicianBindingNavigator.Size = new System.Drawing.Size(624, 25);
+            this.technicianBindingNavigator.Size = new System.Drawing.Size(748, 25);
             this.technicianBindingNavigator.TabIndex = 0;
             this.technicianBindingNavigator.Text = "bindingNavigator1";
+            this.technicianBindingNavigator.Visible = false;
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -216,7 +225,7 @@
             // txbEmail
             // 
             this.txbEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Email", true));
-            this.txbEmail.Location = new System.Drawing.Point(129, 66);
+            this.txbEmail.Location = new System.Drawing.Point(90, 46);
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.ReadOnly = true;
             this.txbEmail.Size = new System.Drawing.Size(206, 20);
@@ -230,7 +239,7 @@
             this.cmbTechName.DisplayMember = "Name";
             this.cmbTechName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTechName.FormattingEnabled = true;
-            this.cmbTechName.Location = new System.Drawing.Point(129, 39);
+            this.cmbTechName.Location = new System.Drawing.Point(90, 19);
             this.cmbTechName.Name = "cmbTechName";
             this.cmbTechName.Size = new System.Drawing.Size(206, 21);
             this.cmbTechName.TabIndex = 4;
@@ -239,18 +248,73 @@
             // txbPhone
             // 
             this.txbPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Phone", true));
-            this.txbPhone.Location = new System.Drawing.Point(129, 92);
+            this.txbPhone.Location = new System.Drawing.Point(90, 72);
             this.txbPhone.Name = "txbPhone";
             this.txbPhone.ReadOnly = true;
             this.txbPhone.Size = new System.Drawing.Size(206, 20);
             this.txbPhone.TabIndex = 6;
             this.txbPhone.TabStop = false;
             // 
+            // incidentBindingSource
+            // 
+            this.incidentBindingSource.DataSource = typeof(TechSupportData.Model.Incident);
+            // 
+            // incidentDataGridView
+            // 
+            this.incidentDataGridView.AllowUserToAddRows = false;
+            this.incidentDataGridView.AllowUserToDeleteRows = false;
+            this.incidentDataGridView.AllowUserToOrderColumns = true;
+            this.incidentDataGridView.AutoGenerateColumns = false;
+            this.incidentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.incidentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn10});
+            this.incidentDataGridView.DataSource = this.incidentBindingSource;
+            this.incidentDataGridView.Location = new System.Drawing.Point(12, 111);
+            this.incidentDataGridView.Name = "incidentDataGridView";
+            this.incidentDataGridView.ReadOnly = true;
+            this.incidentDataGridView.Size = new System.Drawing.Size(724, 220);
+            this.incidentDataGridView.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ProductName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Product Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 170;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "DateOpened";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Date Opened";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Customer Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 250;
+            // 
             // OpenIncidentByTechnicianForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 362);
+            this.ClientSize = new System.Drawing.Size(748, 351);
+            this.Controls.Add(this.incidentDataGridView);
             this.Controls.Add(lblEmail);
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(lblTechName);
@@ -259,12 +323,15 @@
             this.Controls.Add(this.txbPhone);
             this.Controls.Add(this.technicianBindingNavigator);
             this.Name = "OpenIncidentByTechnicianForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpenIncidentByTechnicianForm";
             this.Load += new System.EventHandler(this.OpenIncidentByTechnicianForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.technicianBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.technicianBindingNavigator)).EndInit();
             this.technicianBindingNavigator.ResumeLayout(false);
             this.technicianBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incidentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,6 +356,12 @@
         private System.Windows.Forms.TextBox txbEmail;
         private System.Windows.Forms.ComboBox cmbTechName;
         private System.Windows.Forms.TextBox txbPhone;
+        private System.Windows.Forms.BindingSource incidentBindingSource;
+        private System.Windows.Forms.DataGridView incidentDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 
     }
 }

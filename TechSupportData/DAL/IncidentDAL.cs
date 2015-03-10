@@ -269,5 +269,58 @@ namespace TechSupportData.DAL
                      connection.Close();
              }
          }
+
+         /// <summary>
+         /// This method returns a list of all open incidents 
+         /// for technician with ThechID passed as parameter
+         /// </summary>
+         /// <returns>List of open incidents</returns>
+         public static List<Incident> GetOpenIncidentsByTechnician(int techID)
+         {
+             List<Incident> incidentList = new List<Incident>();
+             SqlConnection connection = TechSupportDBConnection.GetConnection();
+             string selectStatement =
+                 "SELECT p.Name AS ProdName, DateOpened, c.Name AS CustName, Title " +
+                    "FROM Incidents i " +
+                      "JOIN Products p " +
+                        "ON i.ProductCode = p.ProductCode " +
+                      "JOIN Customers c " +
+                        "ON i.CustomerID = c.CustomerID " +
+                    "WHERE DateClosed IS NULL AND i.TechID = @TechID ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@TechID", techID);
+
+             SqlDataReader reader = null;
+
+             try
+             {
+                 connection.Open();
+                 reader = selectCommand.ExecuteReader();
+                 while (reader.Read())
+                 {
+                     Incident incident = new Incident();
+
+                     incident.ProductName = reader["ProdName"].ToString();
+                     incident.DateOpened = (DateTime)reader["DateOpened"];
+                     incident.CustomerName = reader["CustName"].ToString();
+                     incident.Title = reader["Title"].ToString();
+
+                     incidentList.Add(incident);
+                 }
+
+             }
+             catch (SqlException ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 if (connection != null)
+                     connection.Close();
+                 if (reader != null)
+                     reader.Close();
+             }
+             return incidentList;
+         }
     }
 }

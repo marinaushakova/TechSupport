@@ -104,6 +104,7 @@
     <EmbeddedResource Include="View\UpdateIncidentForm.resx">
       <DependentUpon>UpdateIncidentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\TechSupportData.Model.Incident.datasource" />
     <None Include="Properties\DataSources\TechSupportData.Model.Technician.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

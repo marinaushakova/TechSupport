@@ -19,10 +19,19 @@ namespace TechSupport.View
 
         private void OpenedIncidentsReportForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'techSupportDataSet.OpenIncidentsAssignedToTech' table. You can move, or remove it, as needed.
-            this.openIncidentsAssignedToTechTableAdapter.Fill(this.techSupportDataSet.OpenIncidentsAssignedToTech);
+            try
+            {
+                // TODO: This line of code loads data into the 'techSupportDataSet.OpenIncidentsAssignedToTech' table. You can move, or remove it, as needed.
+                this.openIncidentsAssignedToTechTableAdapter.Fill(this.techSupportDataSet.OpenIncidentsAssignedToTech);
 
-            this.rvOpenIncidentsAssihgnedToTech.RefreshReport();
+                this.rvOpenIncidentsAssihgnedToTech.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
+                
+            }
         }
     }
 }

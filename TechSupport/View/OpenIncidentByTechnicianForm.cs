@@ -37,8 +37,16 @@ namespace TechSupport.View
         /// <param name="e"></param>
         private void OpenIncidentByTechnicianForm_Load(object sender, EventArgs e)
         {
-            techList = techController.GetTechniciansWithOpenIncidents();
-            cmbTechName.DataSource = techList;
+            try
+            {
+                techList = techController.GetTechniciansWithOpenIncidents();
+                cmbTechName.DataSource = techList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
+            }
         }
 
         /// <summary>
@@ -49,17 +57,24 @@ namespace TechSupport.View
         /// <param name="e"></param>
         private void cmbTechName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if (cmbTechName.SelectedIndex < 0)
+            try
             {
-                return;
-            }
-            Technician technician = techList[cmbTechName.SelectedIndex];
-            technicianBindingSource.Clear();
-            technicianBindingSource.Add(technician);
+                if (cmbTechName.SelectedIndex < 0)
+                {
+                    return;
+                }
+                Technician technician = techList[cmbTechName.SelectedIndex];
+                technicianBindingSource.Clear();
+                technicianBindingSource.Add(technician);
 
-            incidentList = incidentsController.GetOpenIncidentsByTechnician(technician.TechID);
-            incidentDataGridView.DataSource = incidentList;
+                incidentList = incidentsController.GetOpenIncidentsByTechnician(technician.TechID);
+                incidentDataGridView.DataSource = incidentList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.BeginInvoke(new MethodInvoker(Close));
+            }
 
         }
     }

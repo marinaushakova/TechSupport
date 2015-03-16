@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.125in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.79167in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -173,7 +173,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value EvaluationMode="Constant" />
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontWeight>Normal</FontWeight>
@@ -248,7 +248,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1in</Size>
+                <Size>1.38542in</Size>
                 <CellContents>
                   <Textbox Name="Textbox9">
                     <CanGrow>true</CanGrow>
@@ -287,7 +287,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>2.13542in</Size>
                     <CellContents>
                       <Textbox Name="Textbox7">
                         <CanGrow>true</CanGrow>
@@ -326,7 +326,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.60417in</Size>
                         <CellContents>
                           <Textbox Name="Textbox5">
                             <CanGrow>true</CanGrow>
@@ -383,7 +383,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1in</Size>
+                <Size>1.38542in</Size>
                 <CellContents>
                   <Textbox Name="ProductName">
                     <CanGrow>true</CanGrow>
@@ -431,7 +431,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>2.13542in</Size>
                     <CellContents>
                       <Textbox Name="Title">
                         <CanGrow>true</CanGrow>
@@ -479,7 +479,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.60417in</Size>
                         <CellContents>
                           <Textbox Name="CustomerName">
                             <CanGrow>true</CanGrow>
@@ -526,7 +526,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1in</Size>
+                <Size>1.38542in</Size>
                 <CellContents>
                   <Textbox Name="Textbox11">
                     <CanGrow>true</CanGrow>
@@ -564,7 +564,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>2.13542in</Size>
                     <CellContents>
                       <Textbox Name="Textbox12">
                         <CanGrow>true</CanGrow>
@@ -573,7 +573,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value />
+                                <Value>=Count(Fields!DateOpened.Value)</Value>
                                 <Style>
                                   <FontFamily>Tahoma</FontFamily>
                                   <FontWeight>Normal</FontWeight>
@@ -597,12 +597,13 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.60417in</Size>
                         <CellContents>
                           <Textbox Name="Textbox13">
                             <CanGrow>true</CanGrow>
@@ -611,7 +612,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value />
+                                    <Value>=IIf(Count(Fields!Title.Value) &gt; 1, " Incidents assigned", " Incident assigned")</Value>
                                     <Style>
                                       <FontFamily>Tahoma</FontFamily>
                                       <FontWeight>Normal</FontWeight>
@@ -647,7 +648,7 @@
         </TablixRowHierarchy>
         <DataSetName>OpenIncidentsAssignedToTechDataSet</DataSetName>
         <Height>0.75in</Height>
-        <Width>5in</Width>
+        <Width>8.04167in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -658,7 +659,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>8.04167in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

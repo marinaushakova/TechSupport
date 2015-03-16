@@ -111,6 +111,7 @@
             this.displayIncidentsByProductsAndTechnicianToolStripMenuItem.Name = "displayIncidentsByProductsAndTechnicianToolStripMenuItem";
             this.displayIncidentsByProductsAndTechnicianToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
             this.displayIncidentsByProductsAndTechnicianToolStripMenuItem.Text = "Display Incidents by Products and Technician";
+            this.displayIncidentsByProductsAndTechnicianToolStripMenuItem.Click += new System.EventHandler(this.displayIncidentsByProductsAndTechnicianToolStripMenuItem_Click);
             // 
             // MainForm
             // 

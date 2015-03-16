@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace TechSupport.View
 {
+    /// <summary>
+    /// Form that displays a report containing all open incidents 
+    /// that have been assigned to technicians
+    /// </summary>
     public partial class OpenedIncidentsReportForm : Form
     {
         public OpenedIncidentsReportForm()
@@ -17,6 +21,12 @@ namespace TechSupport.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Method called when the form first opens.
+        /// Fills report with data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenedIncidentsReportForm_Load(object sender, EventArgs e)
         {
             try
@@ -33,5 +43,7 @@ namespace TechSupport.View
                 
             }
         }
+
+ 
     }
 }
